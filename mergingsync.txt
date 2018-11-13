@@ -1,0 +1,25 @@
+
+//Merging files synchronously using readFileSync and appendFileSync function
+//including fs module
+
+var fs = require('fs');
+  function append(file,appendingFile){
+    var data=  fs.readFileSync(appendingFile,'utf8');//synchronous 
+          console.log(data);
+          //if you want to see the data in files view it
+    fs.appendFileSync(file,data);//appending happen synchronously
+        console.log('The "data to append" was appended to file!');
+     
+}
+//now call function append and check it by running.
+append('message.txt','client.js');
+append('message.txt','server.js');
+append('message.txt','net.js');
+ 
+ output:
+  connect
+  receive
+  success
+  The "data to append" was appended to file!
+  The "data to append" was appended to file!
+  The "data to append" was appended to file!
